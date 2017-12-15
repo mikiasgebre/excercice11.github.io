@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <script> // javascript function that help with the drag
+                function allowDrop(ev) {
+                    ev.preventDefault();
+                }
+                
+                function drag(ev) {
+                    ev.dataTransfer.setData("text", ev.target.id);
+                }
+                
+                function drop(ev) {
+                    ev.preventDefault();
+                    var data = ev.dataTransfer.getData("text");
+                    ev.target.appendChild(document.getElementById(data));
+                }
+                </script>
+    <meta charset="utf-8">
+    <title>Assignement_1_Gebre_Mikias_72942</title>
+    <meta name="author" content="XO PIXEL">
+    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src='js/jquery.scrollto.js'></script>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+   <div id="top"> <!-- the div that contains 4 box at the top of the page -->
+            <div class="floating-box" id="TextA"><hA> TextA </h></div>
+            <div class="floating-box" id="TextB"><h2> TextB </h2></div>
+            <div class="floating-box" id="TextC"><div id="innerc"> TextC </div></div>
+            <div class="floating-box" id="photo"><img src="image1.jpg" alt="Mountain View" ></div>
+    
+    </div>
+
+   <div id="middle"><!-- this floating box are all inline-block which help us align them correctly -->
+        <div class="floating-box"><div id="photodrag" ondrop="drop(event)" ondragover="allowDrop(event)" >Photo to drag</div></div>
+        <div class="floating-box" id="TextD"><div id="innerd"> TextD </h3></div>
+    
+    </div>
+
+    <div id="bottom">
+        <div class="floating-box" id="drag" ondrop="drop(event)" ondragover="allowDrop(event)">Drag&Drop area</div>
+        <div class="floating-box" id="drag" ondrop="drop(event)" ondragover="allowDrop(event)">Drag&Drop area <img id="drag1" src="img_logo.jpg" draggable="true"
+            ondragstart="drag(event)" width="336" height="69"></div>
+    </div>
+    
+
+
+</body>
+</html>
